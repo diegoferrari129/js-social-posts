@@ -105,6 +105,11 @@ for (i = 0; i < likeButton.length; i++) {
 
     let button = likeButton[i];
 
+    //aggiungo l'evento click ai pulsanti
+    button.addEventListener('click', function() {
+        this.classList.toggle('like-button--liked');
+
+    });
 };
 
 
