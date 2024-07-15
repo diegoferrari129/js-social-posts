@@ -98,6 +98,16 @@ posts.forEach((post) => {
 });
 
 
+//recupero i pulsanti
+const likeButton = document.querySelectorAll('.js-like-button');
+
+for (i = 0; i < likeButton.length; i++) {
+
+    let button = likeButton[i];
+
+};
+
+
 
 
 
