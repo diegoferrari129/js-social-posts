@@ -56,6 +56,8 @@ const posts = [
     }
 ];
 
+const container = document.getElementById('container');
+
 // ciclo l'array posts
 posts.forEach((post) => {
 
@@ -63,7 +65,7 @@ posts.forEach((post) => {
     let { id, author, content, media, likes, created } = post;
 
     //aggiungo i post al container
-    document.getElementById('container').innerHTML += `
+    container.innerHTML += `
     <div class="post">
         <div class="post__header">
             <div class="post-meta">                    
@@ -98,24 +100,30 @@ posts.forEach((post) => {
 });
 
 
-//recupero i pulsanti
+//recupero tutti gli elementi pulsanti
 const likeButton = document.querySelectorAll('.js-like-button');
 
-for (i = 0; i < likeButton.length; i++) {
+//recupero tutti gli elementi che contengono i likes
+const likesCounter = document.querySelectorAll('.js-likes-counter');
 
-    let button = likeButton[i];
+// inizio un ciclo for each per iterare likeButton
+likeButton.forEach((button, index) => {
 
-    //aggiungo l'evento click ai pulsanti
-    button.addEventListener('click', function() {
-        this.classList.toggle('like-button--liked');
+    //aggiungo un event listener click per ogni pulsante
+    button.addEventListener('click', function(p) {
+        p.preventDefault();
+
+        button.classList.toggle('like-button--liked');
+
+        // recupero l'elemento che contiene il numero di likes
+        let counter = likesCounter[index];
+
+        // converto in numeri
+        let likes = parseInt(counter.innerText);
+
+        // incremento di 1
+        counter.innerText = likes + 1;
 
     });
-};
-
-
-
-
-
-
-
-
+  
+  });
