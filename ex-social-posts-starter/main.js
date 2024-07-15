@@ -56,6 +56,14 @@ const posts = [
     }
 ];
 
+// ciclo l'array posts
+posts.forEach((post) => {
+
+    //dustrutturazione di posts
+    let { id, author, content, media, likes, created } = post;
+
+});
+
 
 
 
